@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://bytegrad.com/course-assets/js/2/favicon.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./src/StyleSheet/style.css" />
+
+    <script src="./src/JavaScript/index.js" defer></script>
+
+    <title>rmtDev // Find your remote developer job</title>
+  </head>
+
+  <body class="body">
+    <div class="background">
+      <img
+        src="https://bytegrad.com/course-assets/js/2/pattern.svg"
+        alt="Background pattern"
+        class="background__pattern"
+      />
+    </div>
+
+    <header class="header">
+      <div class="header__top">
+        <a href="." class="logo">
+          <img
+            src="https://bytegrad.com/course-assets/js/2/logo.svg"
+            alt="Logo"
+            class="logo__img"
+          />
+        </a>
+        <button class="bookmarks-btn">
+          Bookmarks <i class="fa-solid fa-caret-down bookmarks-btn__icon"></i>
+        </button>
+        <ul class="job-list job-list--bookmarks"></ul>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="intro">
+        <h1 class="first-heading">
+          Find your <span class="u-bold">remote developer</span> job
+        </h1>
+        <form action="#" class="search">
+          <button type="submit" class="search__submit-btn">
+            <i class="fa-solid fa-magnifying-glass search__icon"></i>
+          </button>
+          <input
+            class="search__input"
+            spellcheck="false"
+            type="text"
+            required
+            placeholder="Find remote developer jobs..."
+          />
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="jobs-available">
+        <span class="u-bold">109573</span> total jobs available
+      </p>
+    </footer>
+
+    <section class="error">
+      <i class="fa-solid fa-circle-exclamation error__icon"></i>
+      <div class="error__right">
+        <p class="error__title">Something went wrong</p>
+        <p class="error__text">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+        </p>
+      </div>
+    </section>
+  </body>
+</html>
