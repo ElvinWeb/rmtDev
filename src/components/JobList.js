@@ -1,8 +1,14 @@
-import { jobListSearchEl, jobDetailsContentEl, API_URL } from "../common.js";
+import {
+  jobListSearchEl,
+  jobDetailsContentEl,
+  getData,
+  ApiUrls,
+} from "../common.js";
 import renderSpinner from "./Spinner.js";
 import renderJobDetails from "./JobDetails.js";
+import renderError from "./Error.js";
 
-const clickHandler = (event) => {
+const clickHandler = async (event) => {
   // prevent default behavior (navigation)
   event.preventDefault();
 
@@ -11,8 +17,10 @@ const clickHandler = (event) => {
 
   // remove the active class from previously active job item
   document
-    .querySelector(".job-item--active")
-    ?.classList.remove("job-item--active");
+    .querySelectorAll(".job-item--active")
+    .forEach((jobItemWithActiveClass) =>
+      jobItemWithActiveClass.classList.remove("job-item--active")
+    );
 
   // add active class
   jobItemEl.classList.add("job-item--active");
@@ -26,27 +34,29 @@ const clickHandler = (event) => {
   // get the id
   const id = jobItemEl.children[0].getAttribute("href");
 
-  // fetch job item data
-  fetch(`${API_URL}/jobs/${id}`)
-    .then((response) => {
-      if (!response.ok) {
-        console.log("Something went wrong");
-        return;
-      }
+  // render search job list
+  // renderJobList();
 
-      return response.json();
-    })
-    .then((data) => {
-      // extract job item
-      const { jobItem } = data;
+  // add id to url
+  history.pushState(null, "", `/#${id}`);
 
-      // remove spinner
-      renderSpinner("job-details");
+  try {
+    // fetch job item data
+    const data = await getData(ApiUrls.detail(id));
 
-      // render job details
-      renderJobDetails(jobItem);
-    })
-    .catch((error) => console.log(error));
+    // extract job item
+    const { jobItem } = data;
+
+    // remove spinner
+    renderSpinner("job-details");
+
+    // render job details
+    renderJobDetails(jobItem);
+
+  } catch (err) {
+    renderError(err.message);
+    renderSpinner("search");
+  }
 };
 
 const renderJobList = function (jobItems) {
@@ -76,4 +86,5 @@ const renderJobList = function (jobItems) {
 };
 
 jobListSearchEl.addEventListener("click", clickHandler);
+
 export default renderJobList;

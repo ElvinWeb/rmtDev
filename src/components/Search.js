@@ -3,13 +3,14 @@ import {
   searchFormEl,
   jobListSearchEl,
   numberEl,
-  API_URL,
+  getData,
+  ApiUrls,
 } from "../common.js";
 import renderError from "./Error.js";
 import renderSpinner from "./Spinner.js";
-import renderJobList from "./Joblist.js";
+import renderJobList from "./JobList.js";
 
-const submitHandler = (event) => {
+const submitHandler = async (event) => {
   // prevent default behavior
   event.preventDefault();
 
@@ -17,45 +18,41 @@ const submitHandler = (event) => {
   const searchText = searchInputEl.value;
 
   // validation (regular expression example)
-  const forbiddenPattern = /[0-9]/;
+  const forbiddenPattern = /[\d,;!@#$%^&*()_+\-=\[\]{}|\\:";'<>?,./]/;
   const patternMatch = forbiddenPattern.test(searchText);
 
   if (patternMatch) {
-    renderError("You search query is not allowed");
-  } else {
-    // blur input
-    searchInputEl.blur();
+    renderError("You searched query is not allowed!");
+    return;
+  }
 
-    // remove previous job items
-    jobListSearchEl.innerHTML = "";
+  // blur input
+  searchInputEl.blur();
 
-    // render spinner
+  // remove previous job items
+  jobListSearchEl.innerHTML = "";
+
+  // render spinner
+  renderSpinner("search");
+
+  try {
+    // fetch search results
+    const data = await getData(ApiUrls.search(searchText));
+
+    // extract job items
+    const { jobItems } = data;
+
+    // remove spinner
     renderSpinner("search");
 
-    // fetch search results
-    fetch(`${API_URL}/jobs?search=${searchText}`)
-      .then((response) => {
-        if (!response.ok) {
-          console.log("Something went wrong");
-          return;
-        }
+    // render number of results
+    numberEl.textContent = jobItems.length;
 
-        return response.json();
-      })
-      .then((data) => {
-        // extract job items
-        const { jobItems } = data;
-
-        // remove spinner
-        renderSpinner("search");
-
-        // render number of results
-        numberEl.textContent = jobItems.length;
-
-        // render job items in search job list
-        renderJobList(jobItems);
-      })
-      .catch((error) => console.log(error));
+    // render job items in search job list
+    renderJobList(jobItems);
+  } catch (err) {
+    renderError("No job found for your query!");
+    renderSpinner("search");
   }
 };
 

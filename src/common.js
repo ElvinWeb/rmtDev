@@ -1,6 +1,6 @@
 // CONSTANTS
 const API_URL = "https://bytegrad.com/course-assets/js/2/api";
-const DEFAULT_DISPLAY_TIME = 3500;
+const DEFAULT_DISPLAY_TIME = 4000;
 // SELECTORS
 const bookmarksBtnEl = document.querySelector(".bookmarks-btn");
 const errorEl = document.querySelector(".error");
@@ -28,7 +28,38 @@ const sortingBtnRelevantEl = document.querySelector(
 const sortingBtnRecentEl = document.querySelector(".sorting__button--recent");
 const spinnerSearchEl = document.querySelector(".spinner--search");
 const spinnerJobDetailsEl = document.querySelector(".spinner--job-details");
+const devImages = [
+  "/src/Images/dev-1.jpg",
+  "/src/Images/dev-2.jpg",
+  "/src/Images/dev-3.jpg",
+  "/src/Images/dev-4.jpg",
+  "/src/Images/dev-5.jpg",
+  "/src/Images/dev-8.jpg",
+  "/src/Images/dev-9.jpg",
+  "/src/Images/dev-10.jpg",
+];
+const ApiUrls = {
+  search(searchValue) {
+    return `${API_URL}/jobs?search=${searchValue}`;
+  },
+  detail(id) {
+    return `${API_URL}/jobs/${id}`;
+  },
+};
 
+const getData = async (completeURL) => {
+  const response = await fetch(completeURL);
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.description);
+  }
+
+  return data;
+};
+function getRandomNumber() {
+  return Math.floor(Math.random() * 8);
+}
 export {
   bookmarksBtnEl,
   errorEl,
@@ -50,6 +81,10 @@ export {
   sortingBtnRelevantEl,
   spinnerSearchEl,
   spinnerJobDetailsEl,
+  ApiUrls,
+  devImages,
+  getData,
+  getRandomNumber,
   API_URL,
   DEFAULT_DISPLAY_TIME,
 };

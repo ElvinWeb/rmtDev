@@ -1,8 +1,9 @@
-import { jobDetailsContentEl } from "../common.js";
+import { jobDetailsContentEl, devImages, getRandomNumber } from "../common.js";
 
 const renderJobDetails = function (jobItem) {
+  let randomNum = getRandomNumber();
   const jobDetailsHTML = `
-    <img src="${jobItem.coverImgURL}" alt="#" class="job-details__cover-img">
+    <img src="${devImages[randomNum]}" alt="#" class="job-details__cover-img">
 
     <a class="apply-btn" href="${
       jobItem.companyURL
