@@ -3,6 +3,7 @@ import {
   jobDetailsContentEl,
   getData,
   ApiUrls,
+  state,
 } from "../common.js";
 import renderSpinner from "./Spinner.js";
 import renderJobDetails from "./JobDetails.js";
@@ -35,7 +36,7 @@ const clickHandler = async (event) => {
   const id = jobItemEl.children[0].getAttribute("href");
 
   // render search job list
-  // renderJobList();
+  renderJobList();
 
   // add id to url
   history.pushState(null, "", `/#${id}`);
@@ -52,15 +53,18 @@ const clickHandler = async (event) => {
 
     // render job details
     renderJobDetails(jobItem);
-
   } catch (err) {
     renderError(err.message);
     renderSpinner("search");
   }
 };
 
-const renderJobList = function (jobItems) {
-  jobItems.slice(0, 7).forEach((jobItem) => {
+const renderJobList = function () {
+  // remove previous job items
+  jobListSearchEl.innerHTML = "";
+
+  // display job items
+  state.searchJobItems.slice(0, 7).forEach((jobItem) => {
     const newJobItemHTML = `
                 <li class="job-item">
                     <a class="job-item__link" href="${jobItem.id}">

@@ -4,31 +4,35 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <!-- Favicon -->
     <link
       rel="icon"
       type="image/png"
       href="https://bytegrad.com/course-assets/js/2/favicon.png"
     />
+    <!-- Google-fonts cdn -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Font-Awesome css cdn -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <!-- Custom css link -->
     <link rel="stylesheet" href="./src/StyleSheet/style.css" />
     <link rel="stylesheet" href="./src/StyleSheet/responsive.css" />
-
+    <!-- Custom js link -->
     <script src="./index.js" type="module"></script>
 
     <title>rmtDev ~ Step into the world of remote work</title>
   </head>
 
   <body class="body">
+    <!-- App Background -->
     <div class="background">
       <img
         src="https://bytegrad.com/course-assets/js/2/pattern.svg"
@@ -36,7 +40,7 @@
         class="background__pattern"
       />
     </div>
-
+    <!-- Header -->
     <header class="header">
       <div class="header__top">
         <a href="." class="logo">
@@ -54,6 +58,7 @@
     </header>
 
     <main class="main">
+      <!-- Intro Animation -->
       <section class="intro">
         <h1 class="first-heading">
           Find your <span class="u-bold">remote developer</span> job
@@ -72,7 +77,9 @@
         </form>
       </section>
 
+      <!-- App Container -->
       <div class="container">
+        <!-- Job List -->
         <section class="search-results">
           <div class="spinner spinner--search spinner--hidden"></div>
 
@@ -83,10 +90,8 @@
 
             <section class="sorting">
               <i class="fa-solid fa-arrow-down-short-wide sorting__icon"></i>
-              <button
-                class="sorting__button sorting__button--relevant sorting__button--active"
-              >
-                Relevant
+              <button class="sorting__button sorting__button--salary">
+                Salary
               </button>
               <button class="sorting__button sorting__button--recent">
                 Recent
@@ -111,7 +116,7 @@
             </button>
           </section>
         </section>
-
+        <!-- Job Detail -->
         <section class="job-details">
           <div class="spinner spinner--job-details"></div>
 
@@ -129,13 +134,13 @@
         </section>
       </div>
     </main>
-
+    <!-- Footer -->
     <footer class="footer">
       <p class="jobs-available">
-        <span class="u-bold">109573</span> total jobs available
+        <span class="u-bold">10957</span> total jobs available
       </p>
     </footer>
-
+    <!-- Error box -->
     <section class="error">
       <i class="fa-solid fa-circle-exclamation error__icon"></i>
       <div class="error__right">

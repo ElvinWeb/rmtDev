@@ -20,14 +20,17 @@ a {
 button {
   font: inherit;
   border: initial;
-  outline: initial; /* create alternative for focus state */
+  outline: initial;
   background-color: initial;
 }
 
 input {
   border: initial;
-  outline: initial; /* create alternative for focus state */
+  outline: initial;
   font: inherit;
+}
+html {
+  scroll-behavior: smooth;
 }
 
 /* UTILITIES */
@@ -65,11 +68,10 @@ input {
   min-height: 100vh;
   font-family: "Inter", sans-serif;
   position: relative;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
 }
 
 .body::-webkit-scrollbar {
-  /* Chrome, Safari, Edge, Opera, All browsers on iOS */
   display: none;
 }
 
@@ -133,7 +135,6 @@ input {
   left: 0;
   z-index: -1;
   user-select: none;
-
   transform: scale(1.1);
 }
 
@@ -141,7 +142,6 @@ input {
 .header {
   margin-bottom: 13px;
   position: relative;
-
   margin-bottom: 0;
 }
 
@@ -167,7 +167,6 @@ input {
   padding-left: 10px;
   transform: translateY(-2px);
   cursor: pointer;
-
   margin-right: 0;
 }
 
@@ -239,29 +238,24 @@ input {
 /* JOB LIST */
 .job-list {
   background-color: #fff;
-
-  scrollbar-color: #cacdd0 #ffffff; /* Firefox */
-  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #cacdd0 #ffffff;
+  scrollbar-width: thin;
 }
 
 .job-list::-webkit-scrollbar {
-  /* Chrome, Safari, Edge, Opera, All browsers on iOS */
   width: 4px;
 }
 
 .job-list::-webkit-scrollbar-track {
-  /* Chrome, Safari, Edge, Opera, All browsers on iOS */
   background-color: #ffffff;
 }
 
 .job-list::-webkit-scrollbar-thumb {
-  /* Chrome, Safari, Edge, Opera, All browsers on iOS */
   background-color: #cacdd0;
   transition: all 0.2s;
 }
 
 .job-list::-webkit-scrollbar-thumb:hover {
-  /* Chrome, Safari, Edge, Opera, All browsers on iOS */
   background-color: #b1b4b8;
 }
 

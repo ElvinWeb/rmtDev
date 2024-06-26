@@ -5,6 +5,7 @@ import {
   numberEl,
   getData,
   ApiUrls,
+  state,
 } from "../common.js";
 import renderError from "./Error.js";
 import renderSpinner from "./Spinner.js";
@@ -18,7 +19,7 @@ const submitHandler = async (event) => {
   const searchText = searchInputEl.value;
 
   // validation (regular expression example)
-  const forbiddenPattern = /[\d,;!@#$%^&*()_+\-=\[\]{}|\\:";'<>?,./]/;
+  const forbiddenPattern = /[\d,;!@#$%^&*()_+\=\[\]{}|\\:";'<>?,./]/;
   const patternMatch = forbiddenPattern.test(searchText);
 
   if (patternMatch) {
@@ -42,6 +43,9 @@ const submitHandler = async (event) => {
     // extract job items
     const { jobItems } = data;
 
+    // update state
+    state.searchJobItems = jobItems;
+
     // remove spinner
     renderSpinner("search");
 
@@ -49,7 +53,7 @@ const submitHandler = async (event) => {
     numberEl.textContent = jobItems.length;
 
     // render job items in search job list
-    renderJobList(jobItems);
+    renderJobList();
   } catch (err) {
     renderError("No job found for your query!");
     renderSpinner("search");

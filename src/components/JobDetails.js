@@ -2,6 +2,8 @@ import { jobDetailsContentEl, devImages, getRandomNumber } from "../common.js";
 
 const renderJobDetails = function (jobItem) {
   let randomNum = getRandomNumber();
+
+  // display job details
   const jobDetailsHTML = `
     <img src="${devImages[randomNum]}" alt="#" class="job-details__cover-img">
 
