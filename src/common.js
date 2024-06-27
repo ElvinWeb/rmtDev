@@ -1,9 +1,11 @@
 // CONSTANTS
 const API_URL = "https://bytegrad.com/course-assets/js/2/api";
 const DEFAULT_DISPLAY_TIME = 4000;
+const RESULTS_PER_PAGE = 7;
 // STATE
-export const state = {
+const state = {
   searchJobItems: [],
+  currentPage: 1,
 };
 // SELECTORS
 const bookmarksBtnEl = document.querySelector(".bookmarks-btn");
@@ -26,9 +28,7 @@ const paginationNumberBackEl = document.querySelector(
 const searchFormEl = document.querySelector(".search");
 const searchInputEl = document.querySelector(".search__input");
 const sortingEl = document.querySelector(".sorting");
-const sortingBtnSalaryEl = document.querySelector(
-  ".sorting__button--salary"
-);
+const sortingBtnSalaryEl = document.querySelector(".sorting__button--salary");
 const sortingBtnRecentEl = document.querySelector(".sorting__button--recent");
 const spinnerSearchEl = document.querySelector(".spinner--search");
 const spinnerJobDetailsEl = document.querySelector(".spinner--job-details");
@@ -87,12 +87,12 @@ export {
   sortingBtnSalaryEl,
   spinnerSearchEl,
   spinnerJobDetailsEl,
+  state,
   ApiUrls,
   devImages,
   getData,
   getRandomNumber,
   API_URL,
   DEFAULT_DISPLAY_TIME,
+  RESULTS_PER_PAGE,
 };
-
-

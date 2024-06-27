@@ -10,6 +10,7 @@ import {
 import renderError from "./Error.js";
 import renderSpinner from "./Spinner.js";
 import renderJobList from "./JobList.js";
+import renderPaginationButtons from "./Pagination.js";
 
 const submitHandler = async (event) => {
   // prevent default behavior
@@ -51,6 +52,9 @@ const submitHandler = async (event) => {
 
     // render number of results
     numberEl.textContent = jobItems.length;
+
+    // reset pagination buttons
+    renderPaginationButtons();
 
     // render job items in search job list
     renderJobList();
