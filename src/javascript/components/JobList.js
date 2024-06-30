@@ -84,8 +84,10 @@ const clickHandler = async (event) => {
   // get the id
   const id = jobItemEl.children[0].getAttribute("href");
 
-  // render search job list
-  renderJobList();
+  // update state
+  state.activeJobItem = state.searchJobItems.find(
+    (jobItem) => jobItem.id === +id
+  );
 
   // add id to url
   history.pushState(null, "", `/#${id}`);

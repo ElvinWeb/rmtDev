@@ -35,9 +35,6 @@ const submitHandler = async (event) => {
   // remove previous job items
   jobListSearchEl.innerHTML = "";
 
-  // reset sorting buttons
-  sortingBtnRecentEl.classList.remove("sorting__button--active");
-  sortingBtnSalaryEl.classList.add("sorting__button--active");
 
   // render spinner
   renderSpinner("search");
