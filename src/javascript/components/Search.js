@@ -2,6 +2,8 @@ import {
   searchInputEl,
   searchFormEl,
   jobListSearchEl,
+  sortingBtnRecentEl,
+  sortingBtnSalaryEl,
   numberEl,
   getData,
   ApiUrls,
@@ -20,9 +22,8 @@ const submitHandler = async (event) => {
   const searchText = searchInputEl.value;
 
   // validation (regular expression example)
-  const forbiddenPattern = /[\d,;!@#$%^&*()_+\=\[\]{}|\\:";'<>?,./]/;
+  const forbiddenPattern = /[\d,;!@$%^&*()_+\=\[\]{}|\\:";'<>?,/]/;
   const patternMatch = forbiddenPattern.test(searchText);
-
   if (patternMatch) {
     renderError("You searched query is not allowed!");
     return;
@@ -34,18 +35,23 @@ const submitHandler = async (event) => {
   // remove previous job items
   jobListSearchEl.innerHTML = "";
 
+  // reset sorting buttons
+  sortingBtnRecentEl.classList.remove("sorting__button--active");
+  sortingBtnSalaryEl.classList.add("sorting__button--active");
+
   // render spinner
   renderSpinner("search");
 
   try {
     // fetch search results
-    const data = await getData(ApiUrls.search(searchText));
+    const data = await getData(ApiUrls.getBySearch(searchText));
 
     // extract job items
     const { jobItems } = data;
 
     // update state
     state.searchJobItems = jobItems;
+    state.currentPage = 1;
 
     // remove spinner
     renderSpinner("search");

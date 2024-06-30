@@ -1,11 +1,11 @@
 import {
   RESULTS_PER_PAGE,
-  state,
   paginationEl,
   paginationNumberNextEl,
   paginationNumberBackEl,
   paginationBtnNextEl,
   paginationBtnBackEl,
+  state,
 } from "../common.js";
 import renderJobList from "./JobList.js";
 

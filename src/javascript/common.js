@@ -5,6 +5,7 @@ const RESULTS_PER_PAGE = 7;
 // STATE
 const state = {
   searchJobItems: [],
+  activeJobItem: {},
   currentPage: 1,
 };
 // SELECTORS
@@ -44,10 +45,10 @@ const devImages = [
   "/src/Images/dev-10.jpg",
 ];
 const ApiUrls = {
-  search(searchValue) {
+  getBySearch(searchValue) {
     return `${API_URL}/jobs?search=${searchValue}`;
   },
-  detail(id) {
+  getById(id) {
     return `${API_URL}/jobs/${id}`;
   },
 };
