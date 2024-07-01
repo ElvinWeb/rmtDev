@@ -9,7 +9,7 @@ import {
 } from "../common.js";
 import renderJobList from "./JobList.js";
 
-const renderPaginationButtons = () => {
+const renderPaginationButtons = function () {
   // display back button if we are on page 2 or further
   if (state.currentPage >= 2) {
     paginationBtnBackEl.classList.remove("pagination__button--hidden");

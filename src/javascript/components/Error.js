@@ -1,6 +1,6 @@
 import { errorTextEl, errorEl, DEFAULT_DISPLAY_TIME } from "../common.js";
 
-const renderError = function (message) {
+const renderError = function (message = 'Something went wrong') {
   errorTextEl.textContent = message;
   errorEl.classList.add("error--visible");
   setTimeout(() => {

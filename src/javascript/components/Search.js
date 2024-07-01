@@ -14,7 +14,7 @@ import renderSpinner from "./Spinner.js";
 import renderJobList from "./JobList.js";
 import renderPaginationButtons from "./Pagination.js";
 
-const submitHandler = async (event) => {
+const submitHandler = async function (event) {
   // prevent default behavior
   event.preventDefault();
 
@@ -34,7 +34,6 @@ const submitHandler = async (event) => {
 
   // remove previous job items
   jobListSearchEl.innerHTML = "";
-
 
   // render spinner
   renderSpinner("search");

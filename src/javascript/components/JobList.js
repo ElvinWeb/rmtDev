@@ -2,6 +2,7 @@ import {
   RESULTS_PER_PAGE,
   jobListSearchEl,
   jobDetailsContentEl,
+  jobListBookmarksEl,
   getData,
   ApiUrls,
   state,
@@ -10,19 +11,28 @@ import renderSpinner from "./Spinner.js";
 import renderJobDetails from "./JobDetails.js";
 import renderError from "./Error.js";
 
-const renderJobList = function () {
-  // remove previous job items
-  jobListSearchEl.innerHTML = "";
+const renderJobList = function (whichJobList = "search") {
+  // determine correct selector for job list (search results list or bookmarks list)
+  const jobListEl =
+    whichJobList === "search" ? jobListSearchEl : jobListBookmarksEl;
 
-  // display job items
-  state.searchJobItems
-    .slice(
+  // remove previous job items
+  jobListEl.innerHTML = "";
+
+  // determine the job items that should be rendered
+  let jobItems = [];
+  if (whichJobList === "search") {
+    jobItems = state.searchJobItems.slice(
       state.currentPage * RESULTS_PER_PAGE - RESULTS_PER_PAGE,
       state.currentPage * RESULTS_PER_PAGE
-    )
-    .forEach((jobItem) => {
-      console.log(jobItem.id === state.activeJobItem.id);
-      const newJobItemHTML = `
+    );
+  } else if (whichJobList === "bookmarks") {
+    jobItems = state.bookmarkJobItems;
+  }
+
+  // display job items
+  jobItems.forEach((jobItem) => {
+    const newJobItemHTML = `
                 <li class="job-item ${
                   state.activeJobItem.id === jobItem.id
                     ? "job-item--active"
@@ -56,11 +66,12 @@ const renderJobList = function () {
                     </a>
                 </li>
             `;
-      jobListSearchEl.insertAdjacentHTML("beforeend", newJobItemHTML);
-    });
+
+  jobListEl.insertAdjacentHTML("beforeend", newJobItemHTML);
+  });
 };
 
-const clickHandler = async (event) => {
+const clickHandler = async function (event) {
   // prevent default behavior (navigation)
   event.preventDefault();
 
@@ -86,7 +97,7 @@ const clickHandler = async (event) => {
 
   // update state
   state.activeJobItem = state.searchJobItems.find(
-    (jobItem) => jobItem.id === +id
+    (jobItem) => jobItem.id === Number(id)
   );
 
   // add id to url

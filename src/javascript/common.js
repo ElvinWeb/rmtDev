@@ -5,6 +5,7 @@ const RESULTS_PER_PAGE = 7;
 // STATE
 const state = {
   searchJobItems: [],
+  bookmarkJobItems: [],
   activeJobItem: {},
   currentPage: 1,
 };

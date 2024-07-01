@@ -7,7 +7,7 @@ import {
 import renderJobList from "./JobList.js";
 import renderPaginationButtons from "./Pagination.js";
 
-const clickHandler = (event) => {
+const clickHandler = function (event) {
   // get clicked button element
   const clickedButtonEl = event.target.closest(".sorting__button");
 
@@ -42,7 +42,7 @@ const clickHandler = (event) => {
       );
     });
   }
-  
+
   // reset pagination buttons
   renderPaginationButtons();
 

@@ -2,7 +2,7 @@ import { jobDetailsContentEl, getData, ApiUrls, state } from "../common.js";
 import renderSpinner from "./Spinner.js";
 import renderJobDetails from "./JobDetails.js";
 
-const loadHashChangeHandler = async () => {
+const loadHashChangeHandler = async function () {
   // get id from url
   const id = window.location.hash.substring(1);
 
@@ -19,7 +19,6 @@ const loadHashChangeHandler = async () => {
 
       // extract job item
       const { jobItem } = data;
-      console.log(jobItem);
 
       // update state
       state.activeJobItem = jobItem;
