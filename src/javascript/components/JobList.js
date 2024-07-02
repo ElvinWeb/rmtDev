@@ -58,7 +58,12 @@ const renderJobList = function (whichJobList = "search") {
                             </div>
                         </div>
                         <div class="job-item__right">
-                            <i class="fa-solid fa-bookmark job-item__bookmark-icon"></i>
+                            <i class="fa-solid fa-bookmark job-item__bookmark-icon ${
+                              state.bookmarkJobItems.some(
+                                (bookmarkJobItem) =>
+                                  bookmarkJobItem.id === jobItem.id
+                              ) && "job-item__bookmark-icon--bookmarked"
+                            }"></i>
                             <time class="job-item__time">${
                               jobItem.daysAgo
                             }d</time>
@@ -67,7 +72,7 @@ const renderJobList = function (whichJobList = "search") {
                 </li>
             `;
 
-  jobListEl.insertAdjacentHTML("beforeend", newJobItemHTML);
+    jobListEl.insertAdjacentHTML("beforeend", newJobItemHTML);
   });
 };
 
@@ -80,8 +85,10 @@ const clickHandler = async function (event) {
 
   // remove the active class from previously active job item
   document
-    .querySelector(".job-item--active")
-    ?.classList.remove("job-item--active");
+    .querySelectorAll(".job-item--active")
+    .forEach((jobItemWithActiveClass) =>
+      jobItemWithActiveClass.classList.remove("job-item--active")
+    );
 
   // add active class
   jobItemEl.classList.add("job-item--active");
@@ -96,9 +103,13 @@ const clickHandler = async function (event) {
   const id = jobItemEl.children[0].getAttribute("href");
 
   // update state
-  state.activeJobItem = state.searchJobItems.find(
+  const allJobItems = [...state.searchJobItems, ...state.bookmarkJobItems];
+  state.activeJobItem = allJobItems.find(
     (jobItem) => jobItem.id === Number(id)
   );
+
+  // render search job list
+  renderJobList();
 
   // add id to url
   history.pushState(null, "", `/#${id}`);
@@ -116,11 +127,13 @@ const clickHandler = async function (event) {
     // render job details
     renderJobDetails(jobItem);
   } catch (err) {
+    // render error message
     renderError(err.message);
     renderSpinner("search");
   }
 };
 
 jobListSearchEl.addEventListener("click", clickHandler);
+jobListBookmarksEl.addEventListener("click", clickHandler);
 
 export default renderJobList;

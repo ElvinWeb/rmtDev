@@ -1,6 +1,12 @@
-import { jobDetailsContentEl, devImages, getRandomNumber } from "../common.js";
+import {
+  jobDetailsContentEl,
+  devImages,
+  getRandomNumber,
+  state,
+} from "../common.js";
 
 const renderJobDetails = function (jobItem) {
+  // generate random number from 1 to 8
   let randomNum = getRandomNumber();
 
   // display job details
@@ -17,7 +23,11 @@ const renderJobDetails = function (jobItem) {
             <div class="job-info__below-badge">
                 <time class="job-info__time">${jobItem.daysAgo}d</time>
                 <button class="job-info__bookmark-btn">
-                    <i class="fa-solid fa-bookmark job-info__bookmark-icon"></i>
+                    <i class="fa-solid fa-bookmark job-info__bookmark-icon ${
+                      state.bookmarkJobItems.some(
+                        (bookmarkJobItem) => bookmarkJobItem.id === jobItem.id
+                      ) && "job-info__bookmark-icon--bookmarked"
+                    }"></i>
                 </button>
             </div>
         </div>

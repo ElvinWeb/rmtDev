@@ -276,8 +276,7 @@ html {
   transform-origin: left;
   transition: all 0.2s;
   pointer-events: none;
-
-  position: fixed;
+  position: absolute;
   left: 50%;
   top: 82px;
 }
@@ -452,7 +451,7 @@ html {
 
 .search__input {
   height: 56px;
-  width: 610px;
+  width: 650px;
   border-radius: 4px;
   padding-left: 55px;
   padding-right: 15px;
@@ -487,10 +486,9 @@ html {
 }
 /* CONTAINER */
 .container {
-  margin: 0 12px;
-  margin-top: 27px;
+  margin: 27px 20px 0 20px;
+  width: 1200px;
   height: 616px;
-  width: 976px;
   background-color: #fff;
   border-radius: 8px;
   display: flex;
@@ -502,7 +500,7 @@ html {
 
 /* SEARCH RESULTS */
 .search-results {
-  width: 340px;
+  width: 350px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -656,12 +654,11 @@ html {
 }
 
 .job-details__other {
+  margin: 55px 0px;
 }
 
 .job-details__footer {
-  margin-left: 42px;
-  margin-right: 42px;
-  margin-top: 33px;
+  margin: 0px 42px;
   padding-top: 13px;
   border-top: 1px solid #dce2e8;
 }
@@ -706,7 +703,6 @@ html {
 .job-info {
   position: relative;
   z-index: 1;
-  margin-bottom: 40px;
   display: flex;
   column-gap: 16px;
   padding-top: 120px;
@@ -786,8 +782,7 @@ html {
 
 .job-info__description {
   font-size: 14px;
-  margin-top: 18px;
-  margin-bottom: 12px;
+  margin: 25px 0px 12px 0px;
   line-height: 1.4;
 }
 
@@ -835,6 +830,7 @@ html {
 
 .qualifications__list {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   gap: 6px;
 }
@@ -845,6 +841,7 @@ html {
   border-radius: 2px;
   padding: 6px 10px;
   color: #494d4f;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.07);
 }
 
 /* REVIEWS */
@@ -893,8 +890,8 @@ html {
 
 /* FOOTER */
 .footer {
-  max-width: 1000px;
-  padding: 0 12px;
+  max-width: 1200px;
+  padding: 0 10px;
   margin: 20px auto;
   display: flex;
   align-items: center;

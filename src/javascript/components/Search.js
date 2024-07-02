@@ -35,6 +35,10 @@ const submitHandler = async function (event) {
   // remove previous job items
   jobListSearchEl.innerHTML = "";
 
+  // reset sorting buttons
+  sortingBtnRecentEl.classList.remove("sorting__button--active");
+  sortingBtnSalaryEl.classList.remove("sorting__button--active");
+
   // render spinner
   renderSpinner("search");
 
@@ -61,6 +65,7 @@ const submitHandler = async function (event) {
     // render job items in search job list
     renderJobList();
   } catch (err) {
+    // render error message
     renderError("No job found for your query!");
     renderSpinner("search");
   }

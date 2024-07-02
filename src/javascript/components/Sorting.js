@@ -29,7 +29,7 @@ const clickHandler = function (event) {
     sortingBtnSalaryEl.classList.add("sorting__button--active");
   }
 
-  // job items sorted by days and salary status
+  // job items sorted by days and salary properties
   if (recent) {
     state.searchJobItems.sort((a, b) => {
       return a.daysAgo - b.daysAgo;
