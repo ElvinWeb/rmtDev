@@ -2,6 +2,7 @@
 const API_URL = "https://bytegrad.com/course-assets/js/2/api";
 const DEFAULT_DISPLAY_TIME = 4000;
 const RESULTS_PER_PAGE = 7;
+const FADE_ANIMATION_SEC = 2500;
 // STATE
 const state = {
   searchJobItems: [],
@@ -11,6 +12,7 @@ const state = {
 };
 // SELECTORS
 const bookmarksBtnEl = document.querySelector(".bookmarks-btn");
+const headerTopEl = document.querySelector(".header__top");
 const errorEl = document.querySelector(".error");
 const errorTextEl = document.querySelector(".error__text");
 const jobDetailsEl = document.querySelector(".job-details");
@@ -34,6 +36,8 @@ const sortingBtnSalaryEl = document.querySelector(".sorting__button--salary");
 const sortingBtnRecentEl = document.querySelector(".sorting__button--recent");
 const spinnerSearchEl = document.querySelector(".spinner--search");
 const spinnerJobDetailsEl = document.querySelector(".spinner--job-details");
+const fadeIntroEl = document.querySelector(".fadeIntro");
+const containerEl = document.querySelector(".container");
 // UTILITY OBJECTS
 const devImages = [
   "/src/Images/dev-1.jpg",
@@ -70,6 +74,7 @@ function getRandomNumber() {
 
 export {
   bookmarksBtnEl,
+  headerTopEl,
   errorEl,
   errorTextEl,
   jobDetailsContentEl,
@@ -89,6 +94,8 @@ export {
   sortingBtnSalaryEl,
   spinnerSearchEl,
   spinnerJobDetailsEl,
+  fadeIntroEl,
+  containerEl,
   state,
   ApiUrls,
   devImages,
@@ -97,4 +104,5 @@ export {
   API_URL,
   DEFAULT_DISPLAY_TIME,
   RESULTS_PER_PAGE,
+  FADE_ANIMATION_SEC,
 };
