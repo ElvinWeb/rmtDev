@@ -21,25 +21,15 @@
         transform: translateY(-50%);
     }
 
-    &__icon {
-        font-size: 10px;
-        margin-left: 2px;
-        transform: translateY(-1px);
-        color: rgba(255, 255, 255, 0.6);
-        transition: all 0.2s;
-    }
-
     &--active,
     &:hover,
     &:focus {
         color: rgba(255, 255, 255, 1);
-    }
-}
 
-.bookmarks-btn--active .bookmarks-btn__icon,
-.bookmarks-btn:hover .bookmarks-btn__icon,
-.bookmarks-btn:focus .bookmarks-btn__icon {
-    color: rgba(255, 255, 255, 0.8);
+        .bookmarks-btn__icon {
+            color: rgba(255, 255, 255, 0.8);
+        }
+    }
 }
 
 .apply-btn {
@@ -63,19 +53,6 @@
         background-color: #1d60bd;
         color: rgba(255, 255, 255, 1);
     }
-
-    &__icon {
-        color: rgba(255, 255, 255, 0.65);
-        font-size: 8px;
-        margin-left: 4px;
-        margin-top: -1px;
-    }
-}
-
-.sorting__icon {
-    font-size: 11px;
-    color: #4c4f50;
-    margin-right: 5px;
 }
 
 .sorting__button {

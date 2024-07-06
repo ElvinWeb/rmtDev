@@ -1,0 +1,75 @@
+.sorting__icon {
+    font-size: 11px;
+    color: #4c4f50;
+    margin-right: 5px;
+}
+
+.bookmarks-btn__icon {
+    font-size: 10px;
+    margin-left: 2px;
+    transform: translateY(-1px);
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.2s;
+}
+
+.apply-btn__icon {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 8px;
+    margin-left: 4px;
+    margin-top: -1px;
+}
+
+.search__icon {
+    transition: all 0.2s;
+    color: rgba(0, 0, 0, 0.73);
+
+    &:hover,
+    &:focus {
+        color: rgba(0, 0, 0, 0.93);
+    }
+}
+
+.pagination__icon {
+    font-size: 8px;
+    color: #9fa6b0;
+}
+
+.job-info__extra-icon {
+    height: 23px;
+    width: 23px;
+    border-radius: 50%;
+    background-color: #e4e9ed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 9px;
+    margin-right: 8px;
+    color: #a1a8b0;
+}
+
+.job-info__bookmark-icon {
+    color: #d7dbe0;
+    transition: all 0.2s;
+    font-size: 18px;
+
+    &--bookmarked {
+        color: #2671dd;
+    }
+}
+
+.job-item__bookmark-icon {
+    font-size: 14px;
+    cursor: pointer;
+    color: #d7dbe0;
+    transition: all 0.2s;
+
+    &--bookmarked {
+        color: #2671dd;
+    }
+}
+
+.error__icon {
+    font-size: 16px;
+    color: rgb(123, 64, 64);
+    margin-top: 2px;
+}

@@ -1,16 +1,6 @@
 .search {
     position: relative;
 
-    &__icon {
-        transition: all 0.2s;
-        color: rgba(0, 0, 0, 0.73);
-
-        &:hover,
-        &:focus {
-            color: rgba(0, 0, 0, 0.93);
-        }
-    }
-
     &__input {
         height: 56px;
         width: 650px;

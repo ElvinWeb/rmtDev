@@ -35,15 +35,15 @@
         margin-right: 13px;
     }
 
-    &:nth-child(4n + 2) .job-item__badge {
+    &:nth-child(4n + 2) &__badge {
         background-color: #3d87f1;
     }
 
-    &:nth-child(4n + 3) .job-item__badge {
+    &:nth-child(4n + 3) &__badge {
         background-color: #d2d631;
     }
 
-    &:nth-child(4n + 4) .job-item__badge {
+    &:nth-child(4n + 4) &__badge {
         background-color: #d96a46;
     }
 
@@ -75,17 +75,6 @@
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-    }
-
-    &__bookmark-icon {
-        font-size: 14px;
-        cursor: pointer;
-        color: #d7dbe0;
-        transition: all 0.2s;
-
-        &--bookmarked {
-            color: #2671dd;
-        }
     }
 
     &__time {
