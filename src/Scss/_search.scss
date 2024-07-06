@@ -1,0 +1,49 @@
+.search {
+    position: relative;
+
+    &__icon {
+        transition: all 0.2s;
+        color: rgba(0, 0, 0, 0.73);
+
+        &:hover,
+        &:focus {
+            color: rgba(0, 0, 0, 0.93);
+        }
+    }
+
+    &__input {
+        height: 56px;
+        width: 650px;
+        border-radius: 4px;
+        padding-left: 55px;
+        padding-right: 15px;
+        padding-bottom: 2px;
+        color: rgba(0, 0, 0, 0.9);
+        caret-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(255, 255, 255, 0.9);
+        transition: all 0.2s, box-shadow 0.1s;
+
+        &::selection {
+            background-color: rgba(0, 0, 0, 0.25);
+        }
+
+        &:hover,
+        &:focus {
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.4);
+        }
+
+        &::placeholder {
+            color: rgba(0, 0, 0, 0.7);
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        &--invalid {
+            box-shadow: 0 0 0 4px rgba(47, 19, 19, 0.729);
+        }
+    }
+}

@@ -1,0 +1,128 @@
+.bookmarks-btn {
+    text-transform: lowercase;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.75);
+    margin-left: 13px;
+    padding-left: 13px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s;
+    height: 32px;
+
+    &::before {
+        content: "";
+        height: 15px;
+        width: 2px;
+        display: block;
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.3);
+        left: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &__icon {
+        font-size: 10px;
+        margin-left: 2px;
+        transform: translateY(-1px);
+        color: rgba(255, 255, 255, 0.6);
+        transition: all 0.2s;
+    }
+
+    &--active,
+    &:hover,
+    &:focus {
+        color: rgba(255, 255, 255, 1);
+    }
+}
+
+.bookmarks-btn--active .bookmarks-btn__icon,
+.bookmarks-btn:hover .bookmarks-btn__icon,
+.bookmarks-btn:focus .bookmarks-btn__icon {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.apply-btn {
+    position: absolute;
+    background-color: #2671dd;
+    z-index: 2;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 11px;
+    padding: 5px 10px 6px;
+    border-radius: 3px;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+
+    &:hover,
+    &:focus {
+        background-color: #1d60bd;
+        color: rgba(255, 255, 255, 1);
+    }
+
+    &__icon {
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 8px;
+        margin-left: 4px;
+        margin-top: -1px;
+    }
+}
+
+.sorting__icon {
+    font-size: 11px;
+    color: #4c4f50;
+    margin-right: 5px;
+}
+
+.sorting__button {
+    font-size: 10px;
+    text-transform: uppercase;
+    background-color: #e8edf0;
+    padding: 6px 8px;
+    border-radius: 3px;
+    margin-left: 2px;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover,
+    &:focus {
+        background-color: #d0d5d8;
+    }
+
+    &--active,
+    &--active:hover,
+    &--active:focus {
+        color: #fff;
+        background-color: #3c4041;
+    }
+}
+
+.pagination__button {
+    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 500px;
+    color: #747c82;
+    background-color: #eceff2;
+    cursor: pointer;
+    transition: all 0.2s, visibility 0s;
+
+    &:hover,
+    &:focus {
+        background-color: #dde2e6;
+    }
+
+    &--hidden {
+        visibility: hidden;
+    }
+}
+
+.search__submit-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 17px;
+    left: 25px;
+}

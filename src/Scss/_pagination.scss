@@ -1,0 +1,18 @@
+.pagination {
+    height: 40px;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px 1px;
+    border-top: 1px solid #e8edf0;
+
+    &__number {
+        font-weight: 500;
+    }
+
+    &__icon {
+        font-size: 8px;
+        color: #9fa6b0;
+    }
+}

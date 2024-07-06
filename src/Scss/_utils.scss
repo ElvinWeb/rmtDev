@@ -1,0 +1,52 @@
+.u-bold {
+    font-weight: 700;
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-in forwards;
+}
+
+.header-intro {
+    animation: intro 0.3s;
+}
+
+.search-intro {
+    animation: intro 0.3s 0.1s backwards;
+}
+
+.container-intro {
+    animation: intro 0.3s 0.2s backwards;
+}
+
+.body {
+    background-color: #dee3e9;
+    color: rgb(22, 24, 28);
+    min-height: 100vh;
+    font-family: "Inter", sans-serif;
+    position: relative;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.footer {
+    max-width: 1200px;
+    padding: 0 10px;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #a4a9ac;
+}
+
+.jobs-available {
+    font-size: 11px;
+    align-self: flex-start;
+}
+
+.count {
+    font-size: 12px;
+}
+

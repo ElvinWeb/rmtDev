@@ -1,0 +1,15 @@
+.search-results {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    cursor: default;
+
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        border-bottom: 1px solid #e8edf0;
+    }
+}

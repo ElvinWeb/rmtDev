@@ -1,0 +1,32 @@
+.qualifications {
+    display: flex;
+    padding-left: 42px;
+    padding-right: 42px;
+    margin-bottom: 30px;
+
+    &__sub-text {
+        font-size: 13px;
+        width: 157px;
+        margin-top: 3px;
+    }
+
+    &__left {
+        margin-right: 35px;
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    &__item {
+        font-size: 13px;
+        background-color: #e6ebee;
+        border-radius: 2px;
+        padding: 6px 10px;
+        color: #494d4f;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.07);
+    }
+}

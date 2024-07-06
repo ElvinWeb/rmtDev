@@ -1,0 +1,32 @@
+.background {
+    position: absolute;
+    height: 230px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    overflow: hidden;
+    background-image: linear-gradient(125deg, #1f74f1 -10%, #0850b9 100%);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+
+    &::before {
+        content: "";
+        background-image: linear-gradient(-180deg,
+                rgba(0, 0, 0, 0.025) 0,
+                rgba(0, 0, 0, 0.075) 99%);
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+    }
+
+    &__pattern {
+        position: absolute;
+        top: -25px;
+        left: 0;
+        z-index: -1;
+        user-select: none;
+        transform: scale(1.1);
+    }
+}

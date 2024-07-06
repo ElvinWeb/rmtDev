@@ -4,6 +4,7 @@ import {
   searchFormEl,
   containerEl,
   headerTopEl,
+  
 } from "../common.js";
 
 const setIntroAnimation = function () {

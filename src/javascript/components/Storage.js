@@ -1,4 +1,4 @@
-import { state } from "../common.js";
+import { state, sortingBtnRecentEl, sortingBtnSalaryEl } from "../common.js";
 
 // get data from local storage
 const storedJobItems = localStorage.getItem("bookmarkJobItems");

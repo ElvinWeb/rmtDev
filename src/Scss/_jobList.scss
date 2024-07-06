@@ -1,0 +1,67 @@
+/* JOB LIST */
+.job-list {
+    background-color: #fff;
+    scrollbar-color: #cacdd0 #ffffff;
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #ffffff;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #cacdd0;
+        transition: all 0.2s;
+
+        &:hover {
+            background-color: #b1b4b8;
+        }
+    }
+
+    &--bookmarks {
+        visibility: hidden;
+        min-height: 76px;
+        min-width: 340px;
+        width: 340px;
+        border-radius: 4px;
+        overflow: hidden;
+        z-index: 10;
+        box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15);
+        opacity: 0;
+        transform: scale(0.9) translateX(-50%);
+        transform-origin: left;
+        transition: all 0.2s;
+        pointer-events: none;
+        position: absolute;
+        left: 50%;
+        top: 82px;
+
+        &:hover {
+            pointer-events: initial;
+            visibility: initial;
+            transform: scale(1) translateX(-50%);
+            opacity: 1;
+        }
+
+        &::before {
+            content: "Nothing bookmarked yet...";
+            position: absolute;
+            top: 49%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            font-size: 13px;
+            color: rgb(97, 98, 104);
+        }
+    }
+
+    &--visible {
+        pointer-events: initial;
+        visibility: initial;
+        transform: scale(1) translateX(-50%);
+        opacity: 1;
+    }
+}
