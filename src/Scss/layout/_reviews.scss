@@ -3,10 +3,20 @@
     padding-left: 42px;
     padding-right: 42px;
 
+
+    @media screen and (max-width: 576px) {
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
     &__sub-text {
         font-size: 13px;
         width: 157px;
         margin-top: 3px;
+
+        @media screen and (max-width: 576px) {
+            width: fit-content;
+        }
     }
 
     &__left {

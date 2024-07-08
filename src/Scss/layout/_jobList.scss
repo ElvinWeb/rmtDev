@@ -38,6 +38,11 @@
         left: 50%;
         top: 82px;
 
+        @media screen and (max-width: 576px) {
+            width: 320px;
+            min-width: 320px;
+        }
+
         &:hover {
             pointer-events: initial;
             visibility: initial;

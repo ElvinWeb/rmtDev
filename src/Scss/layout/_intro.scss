@@ -36,6 +36,10 @@
         left: 50%;
         transform: translate(-50%, -50%);
         height: 10rem;
+
+        @media screen and (max-width: 576px) {
+            height: 7.5rem;
+        }
     }
 
     &.close {

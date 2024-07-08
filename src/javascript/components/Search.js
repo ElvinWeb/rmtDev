@@ -32,6 +32,12 @@ const submitHandler = async function (event) {
   // blur input
   searchInputEl.blur();
 
+  // remove search input value
+  searchInputEl.value = "";
+
+  //focus on the search input
+  searchInputEl.focus();
+
   // remove previous job items
   jobListSearchEl.innerHTML = "";
 

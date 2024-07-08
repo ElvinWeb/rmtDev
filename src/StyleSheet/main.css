@@ -210,6 +210,11 @@ html {
   color: #fff;
   font-weight: 500;
 }
+@media screen and (max-width: 450px) {
+  .second-heading {
+    font-size: 20px;
+  }
+}
 
 .third-heading {
   font-size: 13px;
@@ -443,6 +448,11 @@ html {
   transform: translate(-50%, -50%);
   height: 10rem;
 }
+@media screen and (max-width: 576px) {
+  .fadeIntro__logo {
+    height: 7.5rem;
+  }
+}
 .fadeIntro.close {
   opacity: 0;
   z-index: -1;
@@ -486,6 +496,11 @@ html {
   transform: translate(-50%, -50%);
   height: 10rem;
 }
+@media screen and (max-width: 576px) {
+  .fadeIntro__logo {
+    height: 7.5rem;
+  }
+}
 .fadeIntro.close {
   opacity: 0;
   z-index: -1;
@@ -498,12 +513,13 @@ html {
   position: relative;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
 }
 @media screen and (max-width: 992px) {
   .job-details {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
-    margin-top: 10px;
+    min-height: 300px;
   }
 }
 .job-details__start-view {
@@ -511,18 +527,17 @@ html {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 500px;
 }
 .job-details__start-text {
   opacity: 0.55;
   color: #24292d;
-  font-size: 16px;
-  width: 275px;
+  font-size: 15px;
+  width: 300px;
   text-align: center;
 }
 .job-details__start-text--big {
   color: #0d1114;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 600;
   margin-bottom: 10px;
 }
@@ -587,17 +602,17 @@ html {
 .job-info__left {
   padding-left: 42px;
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 567px) {
   .job-info__left {
-    padding-left: 15px;
+    padding-left: 21px;
   }
 }
 .job-info__right {
   padding-right: 42px;
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 567px) {
   .job-info__right {
-    padding-right: 15px;
+    padding-right: 21px;
   }
 }
 .job-info__badge {
@@ -641,6 +656,12 @@ html {
   display: flex;
   -moz-column-gap: 35px;
        column-gap: 35px;
+}
+@media screen and (max-width: 450px) {
+  .job-info__extras {
+    -moz-column-gap: 15px;
+         column-gap: 15px;
+  }
 }
 .job-info__extra {
   font-size: 12px;
@@ -831,6 +852,12 @@ html {
   left: 50%;
   top: 82px;
 }
+@media screen and (max-width: 576px) {
+  .job-list--bookmarks {
+    width: 320px;
+    min-width: 320px;
+  }
+}
 .job-list--bookmarks:hover {
   pointer-events: initial;
   visibility: initial;
@@ -863,7 +890,7 @@ html {
 .main .container {
   margin: 30px 20px;
   width: 960px;
-  height: 607px;
+  height: 620px;
   background-color: #fff;
   border-radius: 8px;
   display: flex;
@@ -875,6 +902,7 @@ html {
 @media screen and (min-width: 1100px) {
   .main .container {
     width: 1060px;
+    height: 608px;
   }
 }
 @media screen and (max-width: 992px) {
@@ -910,14 +938,26 @@ html {
 
 .qualifications {
   display: flex;
-  padding-left: 42px;
-  padding-right: 42px;
+  margin-left: 42px;
+  margin-right: 42px;
   margin-bottom: 30px;
+}
+@media screen and (max-width: 576px) {
+  .qualifications {
+    flex-direction: column;
+    row-gap: 20px;
+  }
 }
 .qualifications__sub-text {
   font-size: 13px;
   width: 157px;
   margin-top: 3px;
+}
+@media screen and (max-width: 576px) {
+  .qualifications__sub-text {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
 }
 .qualifications__left {
   margin-right: 35px;
@@ -951,7 +991,7 @@ html {
 }
 @media screen and (max-width: 992px) {
   .search-results {
-    min-height: 350px;
+    min-height: 300px;
   }
 }
 .search-results__top {
@@ -970,10 +1010,22 @@ html {
   padding-left: 42px;
   padding-right: 42px;
 }
+@media screen and (max-width: 576px) {
+  .reviews {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+}
 .reviews__sub-text {
   font-size: 13px;
   width: 157px;
   margin-top: 3px;
+}
+@media screen and (max-width: 576px) {
+  .reviews__sub-text {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
 }
 .reviews__left {
   margin-right: 35px;
@@ -1073,7 +1125,7 @@ html {
 }
 .spinner--search {
   left: 50%;
-  top: 18%;
+  top: 30%;
   width: 85px;
   height: 85px;
   border-top: 5px solid #e2e7e9;
