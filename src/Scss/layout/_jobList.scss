@@ -5,18 +5,18 @@
 
     &::-webkit-scrollbar {
         width: 4px;
-    }
 
-    &::-webkit-scrollbar-track {
-        background-color: #ffffff;
-    }
+        &-track {
+            background-color: #ffffff;
+        }
 
-    &::-webkit-scrollbar-thumb {
-        background-color: #cacdd0;
-        transition: all 0.2s;
+        &-thumb {
+            background-color: #cacdd0;
+            transition: all 0.2s;
 
-        &:hover {
-            background-color: #b1b4b8;
+            &:hover {
+                background-color: #b1b4b8;
+            }
         }
     }
 

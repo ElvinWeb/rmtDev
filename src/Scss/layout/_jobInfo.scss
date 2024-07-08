@@ -17,14 +17,26 @@
                 rgba(0, 0, 0, 0.15));
         z-index: -1;
         border-top-right-radius: 8px;
+
+        @media screen and (max-width: 992px) {
+            border-top-right-radius: 0px;
+        }
     }
 
     &__left {
         padding-left: 42px;
+
+        @media screen and (max-width: 450px) {
+            padding-left: 15px;
+        }
     }
 
     &__right {
         padding-right: 42px;
+
+        @media screen and (max-width: 450px) {
+            padding-right: 15px;
+        }
     }
 
     &__badge {

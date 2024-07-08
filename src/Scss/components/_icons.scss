@@ -35,8 +35,8 @@
 }
 
 .job-info__extra-icon {
-    height: 23px;
-    width: 23px;
+    height: 25px;
+    width: 25px;
     border-radius: 50%;
     background-color: #e4e9ed;
     display: flex;
@@ -45,6 +45,7 @@
     font-size: 9px;
     margin-right: 8px;
     color: #a1a8b0;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.07);
 }
 
 .job-info__bookmark-icon {

@@ -1,9 +1,17 @@
 .search-results {
-    width: 350px;
+    width: 330px;
     display: flex;
     flex-direction: column;
     position: relative;
     cursor: default;
+
+    @media screen and (max-width: 992px) {
+        width: 100%;
+    }
+
+    @media screen and (max-width: 992px) {
+        min-height: 350px;
+    }
 
     &__top {
         display: flex;

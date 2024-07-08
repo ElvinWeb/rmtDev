@@ -257,8 +257,8 @@ html {
 }
 
 .job-info__extra-icon {
-  height: 23px;
-  width: 23px;
+  height: 25px;
+  width: 25px;
   border-radius: 50%;
   background-color: #e4e9ed;
   display: flex;
@@ -267,6 +267,7 @@ html {
   font-size: 9px;
   margin-right: 8px;
   color: #a1a8b0;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.07);
 }
 
 .job-info__bookmark-icon {
@@ -296,7 +297,7 @@ html {
 
 .background {
   position: absolute;
-  height: 230px;
+  height: 250px;
   width: 100%;
   top: 0;
   left: 0;
@@ -498,22 +499,30 @@ html {
   border-top-right-radius: 12px;
   border-bottom-right-radius: 8px;
 }
+@media screen and (max-width: 992px) {
+  .job-details {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: 10px;
+  }
+}
 .job-details__start-view {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  max-width: 500px;
 }
 .job-details__start-text {
   opacity: 0.55;
   color: #24292d;
-  font-size: 14px;
+  font-size: 16px;
   width: 275px;
   text-align: center;
 }
 .job-details__start-text--big {
   color: #0d1114;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 600;
   margin-bottom: 10px;
 }
@@ -533,12 +542,17 @@ html {
      -moz-user-select: none;
           user-select: none;
 }
+@media screen and (max-width: 992px) {
+  .job-details__cover-img {
+    border-top-right-radius: 0px;
+  }
+}
 .job-details__other {
   margin: 55px 0px;
 }
 .job-details__footer {
   margin: 0px 42px;
-  padding-top: 13px;
+  padding: 15px 0px;
   border-top: 1px solid #dce2e8;
 }
 .job-details__footer-text {
@@ -565,11 +579,26 @@ html {
   z-index: -1;
   border-top-right-radius: 8px;
 }
+@media screen and (max-width: 992px) {
+  .job-info::before {
+    border-top-right-radius: 0px;
+  }
+}
 .job-info__left {
   padding-left: 42px;
 }
+@media screen and (max-width: 450px) {
+  .job-info__left {
+    padding-left: 15px;
+  }
+}
 .job-info__right {
   padding-right: 42px;
+}
+@media screen and (max-width: 450px) {
+  .job-info__right {
+    padding-right: 15px;
+  }
 }
 .job-info__badge {
   width: 55px;
@@ -832,15 +861,30 @@ html {
   justify-content: center;
 }
 .main .container {
-  margin: 27px 20px 0 20px;
-  width: 1200px;
+  margin: 30px 20px;
+  width: 960px;
   height: 607px;
   background-color: #fff;
   border-radius: 8px;
   display: flex;
+  flex-direction: row;
   border-top-right-radius: 9px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.07);
   margin-top: 40px;
+}
+@media screen and (min-width: 1100px) {
+  .main .container {
+    width: 1060px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .main .container {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-radius: 0px;
+    margin: 30px 20px 0px 20px;
+  }
 }
 .main .intro {
   display: flex;
@@ -857,7 +901,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px 1px;
+  padding: 0px 20px;
   border-top: 1px solid #e8edf0;
 }
 .pagination__number {
@@ -882,7 +926,7 @@ html {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 10px;
 }
 .qualifications__item {
   font-size: 13px;
@@ -894,11 +938,21 @@ html {
 }
 
 .search-results {
-  width: 350px;
+  width: 330px;
   display: flex;
   flex-direction: column;
   position: relative;
   cursor: default;
+}
+@media screen and (max-width: 992px) {
+  .search-results {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .search-results {
+    min-height: 350px;
+  }
 }
 .search-results__top {
   display: flex;
@@ -964,6 +1018,26 @@ html {
   caret-color: rgba(0, 0, 0, 0.5);
   background-color: rgba(255, 255, 255, 0.9);
   transition: all 0.2s, box-shadow 0.1s;
+}
+@media screen and (max-width: 992px) {
+  .search__input {
+    width: 600px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .search__input {
+    width: 500px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .search__input {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .search__input {
+    width: 300px;
+  }
 }
 .search__input::-moz-selection {
   background-color: rgba(0, 0, 0, 0.25);

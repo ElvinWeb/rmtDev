@@ -13,6 +13,21 @@
         background-color: rgba(255, 255, 255, 0.9);
         transition: all 0.2s, box-shadow 0.1s;
 
+        @media screen and (max-width: 992px) {
+            width: 600px;
+        }
+
+        @media screen and (max-width: 768px) {
+            width: 500px;
+        }
+
+        @media screen and (max-width: 576px) {
+            width: 400px;
+        }
+        @media screen and (max-width: 450px) {
+            width: 300px;
+        }
+
         &::selection {
             background-color: rgba(0, 0, 0, 0.25);
         }

@@ -90,9 +90,6 @@ const clickHandler = async function (event) {
       jobItemWithActiveClass.classList.remove("job-item--active")
     );
 
-  // add active class
-  jobItemEl.classList.add("job-item--active");
-
   // empty the job details section
   jobDetailsContentEl.innerHTML = "";
 
