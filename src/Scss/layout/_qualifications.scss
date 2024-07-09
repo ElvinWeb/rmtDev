@@ -4,6 +4,11 @@
     margin-right: 42px;
     margin-bottom: 30px;
 
+    @media screen and (max-width: 992px) {
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
     @media screen and (max-width: 576px) {
         flex-direction: column;
         row-gap: 20px;

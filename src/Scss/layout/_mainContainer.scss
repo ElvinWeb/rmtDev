@@ -7,6 +7,7 @@
     .container {
         margin: 30px 20px;
         width: 960px;
+        min-height: 610px;
         height: 620px;
         background-color: #fff;
         border-radius: 8px;
@@ -22,11 +23,17 @@
         }
 
         @media screen and (max-width: 992px) {
+            border-radius: 0px;
+            width: 100%;
+            height: fit-content;
+            min-height: 607px;
+            margin: 30px 20px 0px 20px;
+        }
+
+        @media screen and (max-width: 768px) {
             flex-direction: column;
             width: 100%;
             height: 100%;
-            border-radius: 0px;
-            margin: 30px 20px 0px 20px;
         }
     }
 

@@ -12,9 +12,7 @@ const loadHashChangeHandler = async function () {
     // remove the active class from previously active job items
     document
       .querySelectorAll(".job-item--active")
-      .forEach((jobItemWithActiveClass) =>
-        jobItemWithActiveClass.classList.remove("job-item--active")
-      );
+      .forEach((activeJobs) => activeJobs.classList.remove("job-item--active"));
 
     // remove previous job details content
     jobDetailsContentEl.innerHTML = "";

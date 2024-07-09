@@ -26,6 +26,10 @@
     &__left {
         padding-left: 42px;
 
+        @media screen and (max-width: 992px) {
+            padding-left: 21px;
+        }
+
         @media screen and (max-width: 567px) {
             padding-left: 21px;
         }
@@ -33,6 +37,10 @@
 
     &__right {
         padding-right: 42px;
+
+        @media screen and (max-width: 992px) {
+            padding-left: 21px;
+        }
 
         @media screen and (max-width: 567px) {
             padding-right: 21px;
@@ -87,6 +95,10 @@
     &__extras {
         display: flex;
         column-gap: 35px;
+
+        @media screen and (max-width: 992px) {
+            column-gap: 25px;
+        }
 
         @media screen and (max-width: 450px) {
             column-gap: 15px;

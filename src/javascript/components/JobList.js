@@ -86,9 +86,7 @@ const clickHandler = async function (event) {
   // remove the active class from previously active job item
   document
     .querySelectorAll(".job-item--active")
-    .forEach((jobItemWithActiveClass) =>
-      jobItemWithActiveClass.classList.remove("job-item--active")
-    );
+    .forEach((activeJobs) => activeJobs.classList.remove("job-item--active"));
 
   // empty the job details section
   jobDetailsContentEl.innerHTML = "";
@@ -97,7 +95,7 @@ const clickHandler = async function (event) {
   renderSpinner("job-details");
 
   // get the id
-  const id = jobItemEl.children[0].getAttribute("href");
+  const id = jobItemEl?.children[0].getAttribute("href");
 
   // update state
   const allJobItems = [...state.searchJobItems, ...state.bookmarkJobItems];
@@ -125,8 +123,8 @@ const clickHandler = async function (event) {
     renderJobDetails(jobItem);
   } catch (err) {
     // render error message
-    renderError(err.message);
-    renderSpinner("search");
+    renderError("something went wrong during the getting job details");
+    renderSpinner("job-details");
   }
 };
 

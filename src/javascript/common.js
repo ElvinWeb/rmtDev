@@ -1,8 +1,8 @@
 // CONSTANTS
 const API_URL = "https://bytegrad.com/course-assets/js/2/api";
-const DEFAULT_DISPLAY_TIME = 4000;
+const ERROR_DISPLAY_TIME = 4000;
 const RESULTS_PER_PAGE = 7;
-const FADE_ANIMATION_SEC = 2500;
+const FADE_ANIMATION_TIME = 2500;
 // STATE
 const state = {
   searchJobItems: [],
@@ -102,7 +102,7 @@ export {
   getData,
   getRandomNumber,
   API_URL,
-  DEFAULT_DISPLAY_TIME,
+  ERROR_DISPLAY_TIME,
   RESULTS_PER_PAGE,
-  FADE_ANIMATION_SEC,
+  FADE_ANIMATION_TIME,
 };

@@ -2,6 +2,12 @@
     display: flex;
     padding-left: 42px;
     padding-right: 42px;
+    
+    @media screen and (max-width: 992px) {
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
 
 
     @media screen and (max-width: 576px) {
