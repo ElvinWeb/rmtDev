@@ -189,9 +189,9 @@ html {
   color: #fff;
   font-weight: 500;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 576px) {
   .second-heading {
-    font-size: 19px;
+    font-size: 17px;
   }
 }
 
@@ -643,24 +643,18 @@ html {
 }
 .job-info__description {
   font-size: 14px;
-  margin: 25px 0px 12px 0px;
+  margin: 25px 0px 20px 0px;
   line-height: 1.4;
 }
 .job-info__extras {
   display: flex;
-  -moz-column-gap: 40px;
-       column-gap: 40px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
 }
 @media screen and (max-width: 992px) {
   .job-info__extras {
-    -moz-column-gap: 25px;
-         column-gap: 25px;
-  }
-}
-@media screen and (max-width: 450px) {
-  .job-info__extras {
-    -moz-column-gap: 10px;
-         column-gap: 10px;
+    gap: 25px;
   }
 }
 .job-info__extra {

@@ -88,21 +88,20 @@
 
     &__description {
         font-size: 14px;
-        margin: 25px 0px 12px 0px;
+        margin: 25px 0px 20px 0px;
         line-height: 1.4;
     }
 
     &__extras {
         display: flex;
-        column-gap: 40px;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 40px;
 
         @media screen and (max-width: 992px) {
-            column-gap: 25px;
+            gap: 25px;
         }
 
-        @media screen and (max-width: 450px) {
-            column-gap: 10px;
-        }
     }
 
     &__extra {
