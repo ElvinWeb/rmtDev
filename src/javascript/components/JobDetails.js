@@ -12,7 +12,6 @@ const renderJobDetails = function (jobItem) {
   // display job details
   const jobDetailsHTML = `
     <img src="${devImages[randomNum]}" alt="#" class="job-details__cover-img">
-    <a class="apply-btn" href="#" target="_blank">Apply <i class="fa-solid fa-square-arrow-up-right apply-btn__icon"></i></a>
     <section class="job-info">
         <div class="job-info__left">
             <div class="job-info__badge">${jobItem.badgeLetters}</div>

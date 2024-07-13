@@ -20,5 +20,5 @@ const setIntroFadeAnimation = function () {
     setIntroAnimation();
   }, FADE_ANIMATION_TIME);
 };
-
+// event handlers
 window.addEventListener("DOMContentLoaded", setIntroFadeAnimation);

@@ -45,6 +45,6 @@ const loadHashChangeHandler = async function () {
     }
   }
 };
-
+// event handlers
 window.addEventListener("DOMContentLoaded", loadHashChangeHandler);
 window.addEventListener("hashchange", loadHashChangeHandler);

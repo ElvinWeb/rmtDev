@@ -56,7 +56,7 @@ const mouseLeaveHandler = function () {
   // make job list invisible
   jobListBookmarksEl.classList.remove("job-list--visible");
 };
-
+// event handlers
 jobDetailsEl.addEventListener("click", clickHandler);
 bookmarksBtnEl.addEventListener("mouseenter", mouseEnterHandler);
 jobListBookmarksEl.addEventListener("mouseleave", mouseLeaveHandler);

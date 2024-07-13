@@ -32,29 +32,6 @@
     }
 }
 
-.apply-btn {
-    position: absolute;
-    background-color: #2671dd;
-    z-index: 2;
-    color: rgba(255, 255, 255, 0.92);
-    font-size: 11px;
-    padding: 5px 10px 6px;
-    border-radius: 3px;
-    top: 12px;
-    right: 12px;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-
-    &:hover,
-    &:focus {
-        background-color: #1d60bd;
-        color: rgba(255, 255, 255, 1);
-    }
-}
-
 .sorting__button {
     font-size: 10px;
     text-transform: uppercase;

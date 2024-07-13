@@ -1,10 +1,10 @@
 .job-item {
-    padding: 14px 20px;
+    padding: 15px 20px;
     cursor: pointer;
     transition: all 0.2s;
     background-color: #fff;
 
-    &:not(:nth-child(7)) {
+    &:not(:nth-child(8)) {
         border-bottom: 1px solid #ebeff1;
     }
 

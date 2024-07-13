@@ -49,5 +49,5 @@ const clickHandler = function (event) {
   // render job items in list
   renderJobList();
 };
-
+// event handlers
 sortingEl.addEventListener("click", clickHandler);

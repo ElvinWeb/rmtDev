@@ -71,7 +71,6 @@ const renderJobList = function (whichJobList = "search") {
                     </a>
                 </li>
             `;
-
     jobListEl.insertAdjacentHTML("beforeend", newJobItemHTML);
   });
 };
@@ -127,7 +126,7 @@ const clickHandler = async function (event) {
     renderSpinner("job-details");
   }
 };
-
+// event handlers
 jobListSearchEl.addEventListener("click", clickHandler);
 jobListBookmarksEl.addEventListener("click", clickHandler);
 

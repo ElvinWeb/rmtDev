@@ -52,7 +52,7 @@ const clickHandler = (event) => {
   // render job items for that page
   renderJobList();
 };
-
+// event handlers
 paginationEl.addEventListener("click", clickHandler);
 
 export default renderPaginationButtons;

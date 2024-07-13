@@ -94,14 +94,14 @@
 
     &__extras {
         display: flex;
-        column-gap: 35px;
+        column-gap: 40px;
 
         @media screen and (max-width: 992px) {
             column-gap: 25px;
         }
 
         @media screen and (max-width: 450px) {
-            column-gap: 15px;
+            column-gap: 10px;
         }
     }
 

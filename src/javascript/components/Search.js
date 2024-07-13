@@ -76,5 +76,5 @@ const submitHandler = async function (event) {
     renderSpinner("search");
   }
 };
-
+// event handlers
 searchFormEl.addEventListener("submit", submitHandler);

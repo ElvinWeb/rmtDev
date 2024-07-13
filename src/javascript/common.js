@@ -1,7 +1,7 @@
 // CONSTANTS
 const API_URL = "https://bytegrad.com/course-assets/js/2/api";
 const ERROR_DISPLAY_TIME = 4000;
-const RESULTS_PER_PAGE = 7;
+const RESULTS_PER_PAGE = 8;
 const FADE_ANIMATION_TIME = 2500;
 // STATE
 const state = {
