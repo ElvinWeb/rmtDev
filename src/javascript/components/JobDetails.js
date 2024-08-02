@@ -1,17 +1,14 @@
-import {
-  jobDetailsContentEl,
-  devImages,
-  getRandomNumber,
-  state,
-} from "../common.js";
+import { jobDetailsContentEl, getRandomNumber, state } from "../common.js";
+import dev_images from "../../Images/*.jpg";
 
 const renderJobDetails = function (jobItem) {
-  // generate random number from 1 to 8
+  // generate random number from 1 to 8 and selecting random key from dev_images object
   let randomNum = getRandomNumber();
+  const dev_key = Object.keys(dev_images)[randomNum];
 
   // display job details
   const jobDetailsHTML = `
-    <img src="${devImages[randomNum]}" alt="#" class="job-details__cover-img">
+    <img src="${dev_images[dev_key]}" alt="#" class="job-details__cover-img">
     <section class="job-info">
         <div class="job-info__left">
             <div class="job-info__badge">${jobItem.badgeLetters}</div>

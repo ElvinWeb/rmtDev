@@ -45,9 +45,9 @@ const devImages = [
   "/src/Images/dev-3.jpg",
   "/src/Images/dev-4.jpg",
   "/src/Images/dev-5.jpg",
+  "/src/Images/dev-6.jpg",
+  "/src/Images/dev-7.jpg",
   "/src/Images/dev-8.jpg",
-  "/src/Images/dev-9.jpg",
-  "/src/Images/dev-10.jpg",
 ];
 const ApiUrls = {
   getBySearch(searchValue) {

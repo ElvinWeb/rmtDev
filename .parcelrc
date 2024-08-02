@@ -1,0 +1,10 @@
+{
+    "extends": "@parcel/config-default",
+    "resolvers": [
+        "@parcel/resolver-glob",
+        "..."
+    ],
+    "optimizers": {
+        "*.{jpg,jpeg,png}": []
+    }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "rmtdev",
+  "version": "1.0.0",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "description": "",
+  "default": "index.html",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElvinWeb/rmtDev.git"
+  },
+  "author": "Elvin Sarkarov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ElvinWeb/rmtDev/issues"
+  },
+  "homepage": "https://github.com/ElvinWeb/rmtDev#readme",
+  "dependencies": {
+    "@parcel/transformer-image": "^2.12.0",
+    "core-js": "^3.37.1",
+    "regenerator-runtime": "^0.14.1"
+  },
+  "devDependencies": {
+    "@parcel/resolver-glob": "^2.12.0",
+    "parcel": "^2.12.0"
+  }
+}
