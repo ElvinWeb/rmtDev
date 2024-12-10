@@ -5,46 +5,32 @@ import renderError from "./Error.js";
 import renderJobList from "./JobList.js";
 
 const loadHashChangeHandler = async function () {
-  // get id from url
-  const id = window.location.hash.substring(1);
+  const id = window.location.hash.slice(1);
+  
+  if (!id) return;
 
-  if (id) {
-    // remove the active class from previously active job items
-    document
-      .querySelectorAll(".job-item--active")
-      .forEach((activeJobs) => activeJobs.classList.remove("job-item--active"));
+  // Reset UI state
+  document
+    .querySelectorAll('.job-item--active')
+    .forEach(job => job.classList.remove('job-item--active'));
+  jobDetailsContentEl.innerHTML = '';
+  renderSpinner('job-details');
 
-    // remove previous job details content
-    jobDetailsContentEl.innerHTML = "";
+  try {
+    const { jobItem } = await getData(ApiUrls.getById(id));
+    
+    // Update state and UI
+    state.activeJobItem = jobItem;
+    renderJobList();
+    renderSpinner('job-details');
+    renderJobDetails(jobItem);
 
-    // add spinner
-    renderSpinner("job-details");
-
-    try {
-      // fetch job item data
-      const data = await getData(ApiUrls.getById(id));
-
-      // extract job item
-      const { jobItem } = data;
-
-      // update state
-      state.activeJobItem = jobItem;
-
-      // render search job list
-      renderJobList();
-
-      // remove spinner
-      renderSpinner("job-details");
-
-      // render job details
-      renderJobDetails(jobItem);
-    } catch (err) {
-      // render error message
-      renderError("No job found for your route path!");
-      renderSpinner("job-details");
-    }
+  } catch {
+    renderError('No job found for your route path!');
+    renderSpinner('job-details');
   }
 };
-// event handlers
-window.addEventListener("DOMContentLoaded", loadHashChangeHandler);
-window.addEventListener("hashchange", loadHashChangeHandler);
+
+['DOMContentLoaded', 'hashchange'].forEach(event => 
+  window.addEventListener(event, loadHashChangeHandler)
+);

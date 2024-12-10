@@ -2,41 +2,46 @@ import { jobDetailsContentEl, getRandomNumber, state } from "../common.js";
 import dev_images from "../../Images/*.jpg";
 
 const renderJobDetails = function (jobItem) {
-  // generate random number from 1 to 8 and selecting random key from dev_images object
-  let randomNum = getRandomNumber();
-  const dev_key = Object.keys(dev_images)[randomNum];
+  // Get random image key
+  const randomImageKey = Object.keys(dev_images)[getRandomNumber()];
 
-  // display job details
+  // Create HTML template with destructured jobItem properties
+  const {
+    badgeLetters,
+    daysAgo,
+    id,
+    title,
+    company,
+    description,
+    duration,
+    salary,
+    location,
+    qualifications,
+    reviews
+  } = jobItem;
+
+  const isBookmarked = state.bookmarkJobItems.some(bookmark => bookmark.id === id);
+  
   const jobDetailsHTML = `
-    <img src="${dev_images[dev_key]}" alt="#" class="job-details__cover-img">
+    <img src="${dev_images[randomImageKey]}" alt="Developer" class="job-details__cover-img">
     <section class="job-info">
         <div class="job-info__left">
-            <div class="job-info__badge">${jobItem.badgeLetters}</div>
+            <div class="job-info__badge">${badgeLetters}</div>
             <div class="job-info__below-badge">
-                <time class="job-info__time">${jobItem.daysAgo}d</time>
+                <time class="job-info__time">${daysAgo}d</time>
                 <button class="job-info__bookmark-btn">
-                    <i class="fa-solid fa-bookmark job-info__bookmark-icon ${
-                      state.bookmarkJobItems.some(
-                        (bookmarkJobItem) => bookmarkJobItem.id === jobItem.id
-                      ) && "job-info__bookmark-icon--bookmarked"
-                    }"></i>
+                    <i class="fa-solid fa-bookmark job-info__bookmark-icon${isBookmarked ? ' job-info__bookmark-icon--bookmarked' : ''}"></i>
                 </button>
             </div>
         </div>
         <div class="job-info__right">
-            <h2 class="second-heading">${jobItem.title}</h2>
-            <p class="job-info__company">${jobItem.company}</p>
-            <p class="job-info__description">${jobItem.description}</p>
+            <h2 class="second-heading">${title}</h2>
+            <p class="job-info__company">${company}</p>
+            <p class="job-info__description">${description}</p>
             <div class="job-info__extras">
-                <p class="job-info__extra"><i class="fa-solid fa-clock job-info__extra-icon"></i> ${
-                  jobItem.duration
-                }</p>
-                <p class="job-info__extra"><i class="fa-solid fa-money-bill job-info__extra-icon"></i> ${
-                  jobItem.salary
-                }</p>
-                <p class="job-info__extra"><i class="fa-solid fa-location-dot job-info__extra-icon"></i> ${
-                  jobItem.location
-                }</p>
+                <p class="job-info__extra"><i class="fa-solid fa-clock job-info__extra-icon"></i> ${duration}</p>
+                <p class="job-info__extra"><i class="fa-solid fa-money-bill job-info__extra-icon"></i> ${salary}</p>
+                <p class="job-info__extra"><i class="fa-solid fa-location-dot job-info__extra-icon"></i> ${location}</p>
             </div>
         </div>
     </section>
@@ -48,12 +53,7 @@ const renderJobDetails = function (jobItem) {
                 <p class="qualifications__sub-text">Other qualifications may apply</p>
             </div>
             <ul class="qualifications__list">
-                ${jobItem.qualifications
-                  .map(
-                    (qualificationText) =>
-                      `<li class="qualifications__item">${qualificationText}</li>`
-                  )
-                  .join("")}
+                ${qualifications.map(text => `<li class="qualifications__item">${text}</li>`).join('')}
             </ul>
         </section>
         
@@ -63,12 +63,7 @@ const renderJobDetails = function (jobItem) {
                 <p class="reviews__sub-text">Recent things people are saying</p>
             </div>
             <ul class="reviews__list">
-                ${jobItem.reviews
-                  .map(
-                    (reviewText) =>
-                      `<li class="reviews__item">${reviewText}</li>`
-                  )
-                  .join("")}
+                ${reviews.map(text => `<li class="reviews__item">${text}</li>`).join('')}
             </ul>
         </section>
     </div>
@@ -77,6 +72,7 @@ const renderJobDetails = function (jobItem) {
         <p class="job-details__footer-text">If possible, please reference that you found the job on <span class="u-bold">rmtDev</span>, we would really appreciate it!</p>
     </footer>
 `;
+
   jobDetailsContentEl.innerHTML = jobDetailsHTML;
 };
 

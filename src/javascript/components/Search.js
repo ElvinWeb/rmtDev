@@ -15,66 +15,46 @@ import renderJobList from "./JobList.js";
 import renderPaginationButtons from "./Pagination.js";
 
 const submitHandler = async function (event) {
-  // prevent default behavior
   event.preventDefault();
 
-  // get search text
-  const searchText = searchInputEl.value;
+  const searchText = searchInputEl.value.trim();
 
-  // validation (regular expression example)
+  // Validate search text
   const forbiddenPattern = /[\d,;!@$%^&*()_+\=\[\]{}|\\:";'<>?,/]/;
-  const patternMatch = forbiddenPattern.test(searchText);
-  if (patternMatch) {
-    renderError("You searched query is not allowed!");
+  if (forbiddenPattern.test(searchText)) {
+    renderError("Search query contains invalid characters");
     return;
   }
 
-  // blur input
+  // Reset UI state
   searchInputEl.blur();
-
-  // remove search input value
   searchInputEl.value = "";
-
-  //focus on the search input
   searchInputEl.focus();
-
-  // remove previous job items
   jobListSearchEl.innerHTML = "";
+  [sortingBtnRecentEl, sortingBtnSalaryEl].forEach(btn => 
+    btn.classList.remove("sorting__button--active")
+  );
 
-  // reset sorting buttons
-  sortingBtnRecentEl.classList.remove("sorting__button--active");
-  sortingBtnSalaryEl.classList.remove("sorting__button--active");
-
-  // render spinner
   renderSpinner("search");
 
   try {
-    // fetch search results
-    const data = await getData(ApiUrls.getBySearch(searchText));
+    const { jobItems } = await getData(ApiUrls.getBySearch(searchText));
 
-    // extract job items
-    const { jobItems } = data;
+    // Update application state
+    Object.assign(state, {
+      searchJobItems: jobItems,
+      currentPage: 1
+    });
 
-    // update state
-    state.searchJobItems = jobItems;
-    state.currentPage = 1;
-
-    // remove spinner
     renderSpinner("search");
-
-    // render number of results
     numberEl.textContent = jobItems.length;
-
-    // reset pagination buttons
     renderPaginationButtons();
-
-    // render job items in search job list
     renderJobList();
-  } catch (err) {
-    // render error message
+
+  } catch {
     renderError("No job found for your query!");
     renderSpinner("search");
   }
 };
-// event handlers
+
 searchFormEl.addEventListener("submit", submitHandler);

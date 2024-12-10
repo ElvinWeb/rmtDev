@@ -6,57 +6,38 @@ import {
 } from "../common.js";
 import renderJobList from "./JobList.js";
 
-const clickHandler = function (event) {
-  // don't continue if click was outside bookmark button
+const clickHandler = (event) => {
   if (!event.target.className.includes("bookmark")) return;
 
-  // update state
-  if (
-    state.bookmarkJobItems.some(
-      (bookmarkJobItem) => bookmarkJobItem.id === state.activeJobItem.id
-    )
-  ) {
-    state.bookmarkJobItems = state.bookmarkJobItems.filter(
-      (bookmarkJobItem) => bookmarkJobItem.id !== state.activeJobItem.id
-    );
+  const activeId = state.activeJobItem.id;
+  const bookmarkIndex = state.bookmarkJobItems.findIndex(item => item.id === activeId);
+
+  if (bookmarkIndex >= 0) {
+    state.bookmarkJobItems.splice(bookmarkIndex, 1);
   } else {
     state.bookmarkJobItems.push(state.activeJobItem);
   }
 
-  // persist data with localstorage
-  localStorage.setItem(
-    "bookmarkJobItems",
-    JSON.stringify(state.bookmarkJobItems)
-  );
+  localStorage.setItem("bookmarkJobItems", JSON.stringify(state.bookmarkJobItems));
 
-  // update bookmark icon
   document
     .querySelector(".job-info__bookmark-icon")
     .classList.toggle("job-info__bookmark-icon--bookmarked");
 
-  // render search job list
   renderJobList();
 };
 
-const mouseEnterHandler = function () {
-  // make bookmarks button look active
+const mouseEnterHandler = () => {
   bookmarksBtnEl.classList.add("bookmarks-btn--active");
-
-  // make job list visible
   jobListBookmarksEl.classList.add("job-list--visible");
-
-  // render bookmarks job list
   renderJobList("bookmarks");
 };
 
-const mouseLeaveHandler = function () {
-  // make bookmarks button look inactive
+const mouseLeaveHandler = () => {
   bookmarksBtnEl.classList.remove("bookmarks-btn--active");
-
-  // make job list invisible
   jobListBookmarksEl.classList.remove("job-list--visible");
 };
-// event handlers
+
 jobDetailsEl.addEventListener("click", clickHandler);
 bookmarksBtnEl.addEventListener("mouseenter", mouseEnterHandler);
 jobListBookmarksEl.addEventListener("mouseleave", mouseLeaveHandler);

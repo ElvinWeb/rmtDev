@@ -8,46 +8,29 @@ import renderJobList from "./JobList.js";
 import renderPaginationButtons from "./Pagination.js";
 
 const clickHandler = function (event) {
-  // get clicked button element
   const clickedButtonEl = event.target.closest(".sorting__button");
-
-  // stop function if no clicked button element
   if (!clickedButtonEl) return;
 
-  // update state (reset to page 1)
   state.currentPage = 1;
+  
+  const isRecentSort = clickedButtonEl.className.includes("--recent");
 
-  // check if intention is recent or relevant sorting
-  const recent = clickedButtonEl.className.includes("--recent") ? true : false;
+  // Toggle active classes
+  sortingBtnRecentEl.classList.toggle("sorting__button--active", isRecentSort);
+  sortingBtnSalaryEl.classList.toggle("sorting__button--active", !isRecentSort);
 
-  // make sorting button look (in)active
-  if (recent) {
-    sortingBtnRecentEl.classList.add("sorting__button--active");
-    sortingBtnSalaryEl.classList.remove("sorting__button--active");
-  } else {
-    sortingBtnRecentEl.classList.remove("sorting__button--active");
-    sortingBtnSalaryEl.classList.add("sorting__button--active");
-  }
+  // Sort job items
+  state.searchJobItems.sort((a, b) => 
+    isRecentSort 
+      ? a.daysAgo - b.daysAgo
+      : extractSalary(b.salary) - extractSalary(a.salary)
+  );
 
-  // job items sorted by days and salary properties
-  if (recent) {
-    state.searchJobItems.sort((a, b) => {
-      return a.daysAgo - b.daysAgo;
-    });
-  } else {
-    state.searchJobItems.sort((a, b) => {
-      return (
-        Number(b.salary.split(",")[0].split("$")[1]) -
-        Number(a.salary.split(",")[0].split("$")[1])
-      );
-    });
-  }
-
-  // reset pagination buttons
   renderPaginationButtons();
-
-  // render job items in list
   renderJobList();
 };
-// event handlers
+
+// Helper function to extract salary number
+const extractSalary = salary => Number(salary.split(",")[0].slice(1));
+
 sortingEl.addEventListener("click", clickHandler);
